@@ -1,0 +1,28 @@
+// Copyright 2020 Your Name <your_email>
+
+#ifndef INCLUDE_SUGGESTER_SERVER_HPP_
+#define INCLUDE_SUGGESTER_SERVER_HPP_
+#include "nlohmann/json.hpp"
+#include <iostream>
+#include <thread>
+#include <fstream>
+#include <shared_mutex>
+#include <sstream>
+#include <ostream>
+#include <iomanip>
+#include <memory>
+#include <string>
+
+class suggester_server {
+ public:
+  std::string parse_request(const std::string &request) const;
+  std::string suggest(const std::string &input) const;
+
+ public:
+  static std::unique_ptr<nlohmann::json>  _collection;
+  static std::shared_mutex _collection_mutex;
+};
+
+[[noreturn]] void update_collection(const std::string &filename_json);
+
+#endif  // INCLUDE_SUGGESTER_SERVER_HPP_
