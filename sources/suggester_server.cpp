@@ -49,7 +49,7 @@ std::string suggester_server::suggest(const std::string &input) const {
     size_t position = 0;
     for (auto& elem : suggestion[suggestions_str]){
       elem[position_str] = position;
-      elem.erase("cost");
+      elem.erase(cost_str);
       ++position;
     }
     return suggestion.dump(4);
@@ -60,7 +60,7 @@ std::string suggester_server::suggest(const std::string &input) const {
 
 [[noreturn]] void update_collection(const std::string &filename_json)
 {
-  const size_t minutes_time = 1;
+  const size_t minutes_time = 15;
   std::ifstream file_json;
   while (true){
     suggester_server::_collection_mutex.lock();
