@@ -44,7 +44,7 @@ std::string suggester_server::suggest(const std::string &input) const {
               suggestion[suggestions_str].end(),
               [](const nlohmann::json& a, const nlohmann::json& b) -> bool
               {
-                return a[cost_str] < b[cost_str];
+                return a[cost_str] > b[cost_str];
               });
     size_t position = 0;
     for (auto& elem : suggestion[suggestions_str]){

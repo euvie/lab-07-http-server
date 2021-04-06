@@ -185,7 +185,7 @@ int main(int argc, char* argv[])
       std::cerr <<
                 "Usage: http-server-sync <address> <port> <doc_root>\n" <<
                 "Example:\n" <<
-                "    server 0.0.0.0 8080 .\n";
+                "    server 0.0.0.0 1111 .\n";
       return EXIT_FAILURE;
     }
     auto const address = net::ip::make_address(argv[1]);
