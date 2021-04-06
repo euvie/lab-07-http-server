@@ -46,7 +46,7 @@ std::string suggester_server::suggest(const std::string &input) const {
               {
                 return a[cost_str] < b[cost_str];
               });
-    size_t position = 0;
+    size_t position = 0
     for (auto& elem : suggestion[suggestions_str]){
       elem[position_str] = position;
       elem.erase(cost_str);
